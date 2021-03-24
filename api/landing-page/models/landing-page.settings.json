@@ -1,0 +1,90 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": {
+    "name": "landing-page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "info1": {
+      "type": "richtext"
+    },
+    "info2": {
+      "type": "richtext"
+    },
+    "info3": {
+      "type": "richtext"
+    },
+    "info4": {
+      "type": "richtext"
+    },
+    "info5": {
+      "type": "richtext"
+    },
+    "email": {
+      "type": "email"
+    },
+    "headerImage": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "image1": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "image2": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "title1": {
+      "type": "string"
+    },
+    "title2": {
+      "type": "string"
+    },
+    "title3": {
+      "type": "string"
+    },
+    "title4": {
+      "type": "string"
+    },
+    "title5": {
+      "type": "string"
+    },
+    "footerTitle": {
+      "type": "string"
+    },
+    "footerText": {
+      "type": "richtext"
+    }
+  }
+}

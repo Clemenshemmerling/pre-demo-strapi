@@ -1,0 +1,66 @@
+version: 0.2
+
+#env:
+  #variables:
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+  #secrets-manager:
+     # key: secret-id:json-key:version-stage:version-id
+     # key: secret-id:json-key:version-stage:version-id
+  #exported-variables:
+     # - variable
+     # - variable
+  #git-credential-helper: yes
+#batch:
+  #fast-fail: true
+  #build-list:
+  #build-matrix:
+  #build-graph:
+phases:
+  install:
+    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+    #runtime-versions:
+      # name: version
+      # name: version
+    commands:
+      - node -v
+      - echo npm -v
+      - npm -v
+      - yarn -v
+  pre_build:
+    commands:
+      - cp -r api/ server/
+      - cp -r config/ server/
+      - cp -r extensions/ server/
+      - cp scripts/database.js server/config/
+      - cp package.json server/
+      - cp scripts/server.js server/config/
+  build:
+    commands:
+      - cd server
+      - npm i -g node-prune
+      - chmod +x trim-node-modules.sh
+      - yarn && ./trim-node-modules.sh
+  #post_build:
+    #commands:
+#reports:
+  #report-name-or-arn:
+    #files:
+      # - location
+      # - location
+    #base-directory: location
+    #discard-paths: yes
+    #file-format: JunitXml | CucumberJson
+artifacts:
+  files:
+    - '**/*'
+    # - location
+  #name: $(date +%Y-%m-%d)
+  discard-paths: no
+  base-directory: server
+#cache:
+  #paths:
+    # - paths
+
